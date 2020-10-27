@@ -352,7 +352,7 @@ func newRegistryClientController(fakeClient *fake.Clientset, informer connectivi
 	remoteRegistryInformer := informer.Connectivity().V1alpha1().RemoteRegistries()
 	serviceRecordInformer := informer.Connectivity().V1alpha1().ServiceRecords()
 
-	return registryclient.NewRegistryClientController(fakeClient, remoteRegistryInformer, serviceRecordInformer)
+	return registryclient.NewRegistryClientController(fakeClient, remoteRegistryInformer, serviceRecordInformer, "cross-cluster-connectivity")
 }
 
 func newRegistryServerController(fakeClient *fake.Clientset, informer connectivityinformers.SharedInformerFactory) (*registryserver.RegistryServerController, error) {
