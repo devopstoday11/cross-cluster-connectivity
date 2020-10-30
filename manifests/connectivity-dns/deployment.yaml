@@ -2,19 +2,19 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: cross-cluster-connectivity
+  name: dave
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: connectivity-dns
-  namespace: cross-cluster-connectivity
+  namespace: dave
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: connectivity-dns
-  namespace: cross-cluster-connectivity
+  namespace: dave
   labels:
     app: connectivity-dns
 spec:
@@ -64,7 +64,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: connectivity-dns
-    namespace: cross-cluster-connectivity
+    namespace: dave
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
@@ -84,7 +84,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: connectivity-dns
-  namespace: cross-cluster-connectivity
+  namespace: dave
   labels:
     app: connectivity-dns
 spec:
@@ -105,7 +105,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: connectivity-dns-corefile
-  namespace: cross-cluster-connectivity
+  namespace: dave
 data:
   Corefile: |
     xcc.test {

@@ -19,7 +19,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-var connectivityNamespace = "cross-cluster-connectivity"
+var connectivityNamespace = "dave"
 
 var _ = Describe("Exported Service", func() {
 	var certsDir string

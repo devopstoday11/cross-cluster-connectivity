@@ -339,7 +339,7 @@ function apply_remote_registry() {
 function patch_kube_system_coredns() {
   local connectivity_dns_service_ip="$(kubectl get service \
     --kubeconfig ${WORKLOAD_CLUSTER_KUBECONFIG} \
-		-n cross-cluster-connectivity \
+		-n dave \
 		connectivity-dns -o=jsonpath='{.spec.clusterIP}')"
 
   kubectl \
